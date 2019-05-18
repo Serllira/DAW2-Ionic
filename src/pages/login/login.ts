@@ -1,17 +1,10 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
-import {HomePage} from "../home/home";
+import {Component} from '@angular/core';
+import {IonicPage, NavController} from 'ionic-angular';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {AuthService} from '../../services/auth.service';
 import {SignupPage} from "../signup/signup";
 import {RoomPage} from "../room/room";
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -37,13 +30,12 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
+
   login() {
     let data = this.loginForm.value;
-
     if (!data.email) {
       return;
     }
-
     let credentials = {
       email: data.email,
       password: data.password
@@ -54,7 +46,8 @@ export class LoginPage {
         error => this.loginError = error.message
       );
   }
-  signup(){
+
+  signup() {
     this.navCtrl.push(SignupPage);
   }
 

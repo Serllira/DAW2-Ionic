@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {HomePage} from "../home/home";
-import { AuthService } from '../../services/auth.service';
+import {Component} from '@angular/core';
+import {IonicPage, NavController} from 'ionic-angular';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {AuthService} from '../../services/auth.service';
 import {RoomPage} from "../room/room";
 
 @IonicPage()
@@ -10,6 +9,7 @@ import {RoomPage} from "../room/room";
   selector: 'page-signup',
   templateUrl: 'signup.html',
 })
+
 export class SignupPage {
   signupError: string;
   form: FormGroup;
@@ -22,7 +22,7 @@ export class SignupPage {
     this.form = fb.group({
       email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
-      nick:[]
+      nick: []
     });
   }
 
@@ -37,20 +37,17 @@ export class SignupPage {
       password: data.password
     };
     let datos = {
-
       email: data.email,
       nick: data.nick,
       admin: false
     };
     this.auth.signUp(credentials).then(
-      () => this.navCtrl.setRoot(RoomPage),
-
+      () => {
+        this.auth.signup2(datos);
+        this.navCtrl.push(RoomPage)
+      },
       error => this.signupError = error.message
     );
-    this.auth.signup2(datos);
   }
-
-
-
 
 }

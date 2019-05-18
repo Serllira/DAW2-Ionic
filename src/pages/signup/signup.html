@@ -1,39 +1,44 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Sign up</ion-title>
+    <ion-title>Registrarse</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
 
+  <div class="user-photo" padding-top>
+    <ion-avatar (click)="modificarFoto()">
+      <img src="../assets/imgs/logo-portada.png">
+    </ion-avatar>
+  </div>
   <form (ngSubmit)="signup()" [formGroup]="form">
+
     <ion-list inset>
 
       <ion-item [ngClass]="{ invalid: emailErrors.hasError('*', ['touched']) }">
         <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
       </ion-item>
-
       <div ngxErrors="email" #emailErrors="ngxErrors">
-        <div [ngxError]="['email', 'required']" [when]="['touched']">It should be a valid email</div>
+        <div [ngxError]="['email', 'required']" [when]="['touched']">Debe ser un email válido</div>
       </div>
 
       <ion-item>
-        <ion-input name="nick" id="nick" type="text" placeholder="Nick" formControlName="nick"></ion-input>
+        <ion-input type="text" placeholder="Nick" formControlName="nick"></ion-input>
       </ion-item>
 
       <ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }">
-        <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+        <ion-input type="password" placeholder="Contraseña" formControlName="password"></ion-input>
       </ion-item>
-
       <div ngxErrors="password" #passwordErrors="ngxErrors">
-        <div [ngxError]="['minlength', 'required']" [when]="['touched']">It should be at least 6 characters</div>
+        <div [ngxError]="['minlength', 'required']" [when]="['touched']">Debe tener al menos 6 caracteres</div>
       </div>
+
     </ion-list>
 
     <div padding-horizontal>
       <div class="form-error">{{signupError}}</div>
-
-      <button ion-button full type="submit" [disabled]="!form.valid">Sign up</button>
+      <button ion-button full type="submit" [disabled]="!form.valid">Registrarse</button>
     </div>
+
   </form>
 </ion-content>
