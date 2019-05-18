@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Banear usuario</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="banUser()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Introduce el usuario que quieres banear</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario" name="usuario" required=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <button ion-button full round color="danger" type="submit">Banear</button>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,38 @@
+<!--<ion-header>-->
+  <!--<ion-navbar>-->
+    <!--<ion-title>Lista de baneados</ion-title>-->
+  <!--</ion-navbar>-->
+<!--</ion-header>-->
+
+<!--<ion-content padding>-->
+  <!--<ion-list *ngFor="let baneado of baneados">-->
+    <!--<ion-item class="item-content" >-->
+      <!--<h1 style="font-weight: bolder; font-size: large">Sala:</h1> {{baneado.roomname}}-->
+      <!--<ion-item>-->
+        <!--{{baneado.usuario}}-->
+        <!--<ion-icon color="secondary" name="unlock" item-end (click)="unban($event,baneado)"></ion-icon>-->
+      <!--</ion-item>-->
+    <!--</ion-item>-->
+  <!--</ion-list>-->
+<!--</ion-content>-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Lista de baneados</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngFor="let room of rooms">
+    <ion-item class="item-content" >
+      <div *ngIf="nombresala(room.roomname)"><h1 style="font-weight: bolder; font-size: large">Sala:</h1><div class="nombre_sala">{{room.roomname}}:</div></div>
+      <ul>
+      <div *ngFor="let baneado of baneados" class="baneado">
+        <div *ngIf="baneado.roomname===room.roomname"><li>{{baneado.usuario}}
+          <ion-icon color="secondary" name="unlock" item-end (click)="unban($event,baneado)"></ion-icon>
+        </li></div>
+      </div>
+      </ul>
+
+    </ion-item>
+  </ion-list>
+</ion-content>
