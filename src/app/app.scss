@@ -46,33 +46,6 @@
   }
 }
 
-/*
- * Components Cards page style
- */
-.card-background-page {
-  ion-card {
-    position: relative;
-    text-align: center;
-  }
-
-  .card-title {
-    position: absolute;
-    top: 36%;
-    font-size: 2.0em;
-    width: 100%;
-    font-weight: bold;
-    color: #fff;
-  }
-
-  .card-subtitle {
-    font-size: 1.0em;
-    position: absolute;
-    top: 52%;
-    width: 100%;
-    color: #fff;
-  }
-}
-
 h1.as-header-icon {
   text-align: center;
 }
@@ -81,9 +54,6 @@ h1.as-header-icon ion-icon{
   font-size: 6em;
 }
 
-/*
- * Components Grid page style
- */
 .grid-page {
   ion-col div {
     background-color: #F9FAFB;
@@ -94,9 +64,6 @@ h1.as-header-icon ion-icon{
   }
 }
 
-/*
- * Components Icons page style
- */
 .icons-page {
   ion-icon {
     font-size: 50px;
@@ -114,3 +81,4 @@ h1.as-header-icon ion-icon{
     padding: 10px 5px;
   }
 }
+
